@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="清邁行程">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>清邁按摩行 2026</title>
+<meta name="theme-color" content="#1e3a5f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;900&display=swap">
+<style>
+/* Layout: navy hero band, sticky pill nav, stacked sections of cards; day timelines as dotted rails */
+:root{
+  --navy:#1e3a5f; --navy-2:#2a4d78; --on-navy:#f3f6fa; --on-navy-2:#b9c8db;
+  --bg:#f3f5f8; --card:#ffffff; --fg:#17212e; --muted:#5b6878; --line:#dde3ea; --soft:#eaeff5;
+  --gold:#b7791f; --gold-bg:#fbf1df;
+  --food:#c4571f; --spa:#6b4fb3; --see:#127a6b; --shop:#127a6b; --move:#8a96a5; --stay:#1e3a5f;
+  --ok:#1f7a3d; --ok-bg:#e3f3e8; --wait:#8a5a00; --wait-bg:#fdf0d5; --warn:#b42318; --warn-bg:#fde7e4;
+  --friend:#1b6fa8; --friend-bg:#e2f0fa;
+  --display:"Noto Serif TC","Songti TC",serif; --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --navy:#142a45; --navy-2:#1e3a5f; --on-navy:#eef3f9; --on-navy-2:#9fb3cc;
+  --bg:#0e141c; --card:#161e29; --fg:#e6ebf1; --muted:#97a4b4; --line:#273242; --soft:#1c2633;
+  --gold:#e3ad55; --gold-bg:#33270f;
+  --food:#ee8a55; --spa:#a68cf0; --see:#3fbfa9; --shop:#3fbfa9; --move:#6f7b8b; --stay:#8fb3e0;
+  --ok:#6fd08f; --ok-bg:#16301f; --wait:#f0c060; --wait-bg:#33280f; --warn:#ff8a7a; --warn-bg:#3a1714;
+  --friend:#7cc0f0; --friend-bg:#132c40; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --navy:#142a45; --navy-2:#1e3a5f; --on-navy:#eef3f9; --on-navy-2:#9fb3cc;
+  --bg:#0e141c; --card:#161e29; --fg:#e6ebf1; --muted:#97a4b4; --line:#273242; --soft:#1c2633;
+  --gold:#e3ad55; --gold-bg:#33270f;
+  --food:#ee8a55; --spa:#a68cf0; --see:#3fbfa9; --shop:#3fbfa9; --move:#6f7b8b; --stay:#8fb3e0;
+  --ok:#6fd08f; --ok-bg:#16301f; --wait:#f0c060; --wait-bg:#33280f; --warn:#ff8a7a; --warn-bg:#3a1714;
+  --friend:#7cc0f0; --friend-bg:#132c40; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.65;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--friend)}
+.hero{background:var(--navy);color:var(--on-navy)}
+.hero .wrap{padding-block:34px 26px}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--on-navy-2);margin:0 0 6px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(28px,6vw,42px);line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--on-navy-2);margin:8px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:3px 10px;border-radius:999px;background:var(--navy-2);color:var(--on-navy)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);border-top:1px solid var(--navy-2)}
+.nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:8px;scrollbar-width:none}
+.nav a{flex:none;color:var(--on-navy);text-decoration:none;font-size:14px;padding:5px 12px;border-radius:999px;background:var(--navy-2)}
+.nav a:hover,.nav a:focus-visible{background:var(--on-navy);color:var(--navy);outline:none}
+section{padding-block:28px 6px;scroll-margin-top:calc(56px + env(safe-area-inset-top,0px))}
+h2{font-family:var(--display);font-weight:600;font-size:24px;margin:0 0 14px;text-wrap:balance}
+h3{font-size:16px;font-weight:700;margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.stack{display:grid;gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.badge{display:inline-block;font-size:12px;font-weight:500;padding:1px 8px;border-radius:6px;white-space:nowrap;vertical-align:1px}
+.ok{background:var(--ok-bg);color:var(--ok)} .wait{background:var(--wait-bg);color:var(--wait)} .warn{background:var(--warn-bg);color:var(--warn)} .fr{background:var(--friend-bg);color:var(--friend)}
+.callout{border-radius:10px;padding:12px 14px;font-size:14px}
+.callout b{display:block;margin-bottom:2px}
+.callout.plan{background:var(--soft)} .callout.alert{background:var(--warn-bg);color:var(--fg)} .callout.alert b{color:var(--warn)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px;margin-top:8px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;min-width:0}
+.flight{display:flex;align-items:center;gap:12px;margin:8px 0 4px;flex-wrap:wrap}
+.flight .t{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+.flight .ap{font-size:12px;color:var(--muted);display:block;line-height:1.2}
+.flight .arrow{flex:1;min-width:40px;border-top:2px dashed var(--line);position:relative;text-align:center}
+.flight .arrow span{position:relative;top:-11px;background:var(--card);padding:0 6px;font-size:12px;color:var(--muted)}
+.day{padding:0;overflow:hidden}
+.dayhead{background:var(--soft);padding:12px 18px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.dayhead .dn{font-family:var(--display);font-weight:900;font-size:20px;color:var(--navy-2)}
+:root[data-theme="dark"] .dayhead .dn{color:var(--stay)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .dayhead .dn{color:var(--stay)}}
+.dayhead .dt{font-weight:700}
+.dayhead{cursor:pointer;list-style:none;user-select:none}
+.dayhead::-webkit-details-marker{display:none}
+.chev{margin-left:auto;color:var(--muted);font-size:14px;transition:transform .2s}
+details.day:not([open]) .chev{transform:rotate(-90deg)}
+.dayhead:focus-visible{outline:2px solid var(--friend);outline-offset:-2px}
+.daytools{display:flex;gap:8px;margin:0 0 10px}
+.daytools button{font:inherit;font-size:13px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--fg);cursor:pointer}
+.daytools button:hover{border-color:var(--friend);color:var(--friend)}
+.items{list-style:none;margin:0;padding:6px 18px 12px}
+.it{display:grid;grid-template-columns:52px 14px minmax(0,1fr);gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.it:last-child{border-bottom:0}
+.it .tm{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;padding-top:1px}
+.it .dot{width:12px;height:12px;border-radius:50%;margin-top:6px;background:var(--c)}
+.it .nm{font-weight:500}
+.it .nt{font-size:13px;color:var(--muted)}
+.it .nm a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted)}
+.it .nm a:hover{color:var(--friend)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted);margin:-4px 0 14px}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.spa .num{font-family:var(--display);font-weight:900;font-size:28px;color:var(--spa);line-height:1}
+.spa-top{display:flex;gap:12px;align-items:flex-start}
+.sh{font-size:13px;font-weight:700;margin:14px 0 0;color:var(--muted)}
+.menu{list-style:none;margin:6px 0 0;padding:0;font-size:14px}
+.menu li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;padding:6px 8px;border-radius:6px}
+.menu li.on{background:var(--ok-bg);font-weight:500}
+.menu .pr{font-variant-numeric:tabular-nums;text-align:right;min-width:56px}
+.btn{display:inline-block;margin-top:10px;font-size:13px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--fg)}
+.btn:hover{border-color:var(--friend);color:var(--friend)}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:13px}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;border-bottom:0}
+.check{list-style:none;margin:0;padding:0}
+.check li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:start;padding:8px 0;border-bottom:1px solid var(--line)}
+.check li:last-child{border-bottom:0}
+.check .cat{font-size:12px;color:var(--muted);min-width:44px}
+@media (max-width:560px){.check li{grid-template-columns:auto minmax(0,1fr)}.check li>.badge,.check li>a{grid-column:2;justify-self:start;white-space:normal}}
+.pack{columns:2 260px;column-gap:24px}
+.pack .grp{break-inside:avoid;margin-bottom:14px}
+.pack label{display:flex;gap:8px;align-items:flex-start;font-size:14px;padding:3px 0;cursor:pointer}
+.pack input{margin-top:5px;accent-color:var(--navy-2)}
+.pack input:checked+span{color:var(--muted);text-decoration:line-through}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.tips ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+footer{padding-block:30px 40px;font-size:12px;color:var(--muted)}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">CHIANG MAI · 2026</p>
+  <h1>🇹🇼 ✈ 🇹🇭 清邁五天四夜美學療癒之旅</h1>
+  <p class="sub">12/01（二）– 12/05（六）｜5 天 4 夜｜每晚一場按摩</p>
+  <div class="chips"><span class="chip">👥 12 人團</span><span class="chip">🏨 古城基地</span><span class="chip">💆 4 場按摩</span><span class="chip">✈ 星宇 JX751 / JX752</span></div>
+</div></header>
+
+<nav class="nav" aria-label="章節"><div class="wrap">
+  <a href="#todo">🚨 待辦</a><a href="#plan">🗓 行程</a><a href="#spa">💆 按摩</a><a href="#flight">✈ 航班</a><a href="#stay">🏨 住宿</a><a href="#food">🍽 餐廳</a><a href="#shop">🛍 購物</a><a href="#budget">💰 預算</a><a href="#pack">🎒 行李</a><a href="#tips">💡 須知</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="todo">
+  <h2>🚨 出發前待辦</h2>
+  <div class="card">
+    <ul class="check" id="todoList"></ul>
+  </div>
+</section>
+
+<section id="plan">
+  <h2>🗓 每日行程</h2>
+  <div class="legend">
+    <span><i style="--c:var(--food)"></i>吃</span><span><i style="--c:var(--spa)"></i>按摩</span><span><i style="--c:var(--see)"></i>景點 / 購物</span><span><i style="--c:var(--move)"></i>交通</span><span><i style="--c:var(--stay)"></i>住宿 / 航班</span><span><span class="badge fr">與 Jessica 同行</span>可以跟 Jessica 一起</span>
+  </div>
+  <div class="callout plan" style="margin-bottom:12px"><b>本團安排</b>以古城為基地，每天主攻一區：Day 1–2 古城、Day 3 西郊＋自由下午、Day 4 寧曼、Day 5 市集＋機場。點地點名稱可以開 Google 地圖。</div>
+  <div class="daytools"><button type="button" id="openAll">全部展開</button><button type="button" id="closeAll">全部收合</button></div>
+  <div class="stack" id="days"></div>
+</section>
+
+<section id="spa">
+  <h2>💆 四晚按摩</h2>
+  <div class="grid2" id="spaCards"></div>
+  <div class="callout plan" style="margin-top:12px"><b>按摩小提醒</b>進店脫鞋；療程後小費 50–100฿（90 分鐘以上 100–200฿）。按摩前別吃太飽，按完多喝水、別馬上喝酒。</div>
+</section>
+
+<section id="flight">
+  <h2>✈ 航班</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>↗ 去程 · 12/01（二） <span class="badge ok">✅ 已購</span></h3>
+      <div class="flight"><div><span class="t">12:55</span><span class="ap">桃園 TPE</span></div><div class="arrow"><span>JX751 · 3h50m</span></div><div><span class="t">15:55</span><span class="ap">清邁 CNX</span></div></div>
+      <p class="small muted" style="margin:6px 0 0">星宇航空 · A321neo · 清邁比台灣慢 1 小時</p>
+    </div>
+    <div class="card">
+      <h3>↙ 回程 · 12/05（六） <span class="badge ok">✅ 已購</span></h3>
+      <div class="flight"><div><span class="t">16:55</span><span class="ap">清邁 CNX</span></div><div class="arrow"><span>JX752 · 3h25m</span></div><div><span class="t">21:20</span><span class="ap">桃園 TPE</span></div></div>
+      <p class="small muted" style="margin:6px 0 0">星宇航空 · A321neo · 14:30 前到機場</p>
+    </div>
+  </div>
+  <p class="small muted">機票 NT$ 18,541 / 人。</p>
+</section>
+
+<section id="stay">
+  <h2>🏨 住宿</h2>
+  <div class="card">
+    <h3>VORA RETREAT · 8 bedrooms · Old City <span class="badge ok">✅ 已預訂</span></h3>
+    <dl class="kv">
+      <dt>日期</dt><dd>12/01 – 12/05（4 晚）</dd>
+      <dt>房型</dt><dd>整棟 Villa · 8 房 8 衛 · 最多 15 人，12 人入住 · 每日清潔</dd>
+      <dt>位置</dt><dd>古城西側，走路到帕辛寺約 7 分、三王像約 12 分</dd>
+      <dt>評價</dt><dd>Booking.com 9.5 / 10 · Agoda 9.7 / 10</dd>
+      <dt>費用</dt><dd><span class="badge wait">⏳ 待補</span> 總價 ÷ 12 人</dd>
+    </dl>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=VORA%20RETREAT%208%20bedrooms%20Old%20City%20Chiang%20Mai" target="_blank" rel="noopener">📍 Google 地圖</a>
+    <div class="callout plan" style="margin-top:12px"><b>走路就到</b>帕辛寺、Oasis 古城店、Makkha 拉查達姆農分店、LONDON.cnx、Huen Phen、契迪龍寺。塔佩門和夜市在古城東邊，晚上建議搭 Grab。</div>
+  </div>
+</section>
+
+<section id="food">
+  <h2>🍽 餐廳</h2>
+  <div class="grid2" id="foodCards"></div>
+  <h3 style="margin:20px 0 10px">備選早午餐 · 麵包店（沒排進行程）</h3>
+  <div class="card"><ul class="check" id="altFood"></ul></div>
+</section>
+
+<section id="shop">
+  <h2>🛍 購物</h2>
+  <div class="grid2" id="shopCards"></div>
+  <div class="callout plan" style="margin-top:12px"><b>必買 Top 10</b>老虎牙膏、蛇牌爽身粉、青草膏、Doi Kham 果乾、藍象咖哩醬、媽媽麵（以上 MAYA 的 Tops 超市、Boots 就買得到）；PANPURI 香氛、HARNN 米糠皂（One Nimman）；泰絲圍巾、藤編包（Kalm Village、真心市集）。</div>
+</section>
+
+<section id="budget">
+  <h2>💰 預算（每人）</h2>
+  <div class="card tablewrap">
+    <table>
+      <thead><tr><th>項目</th><th>說明</th><th style="text-align:right">金額</th></tr></thead>
+      <tbody id="budgetRows"></tbody>
+    </table>
+    <p class="small muted" style="margin:8px 0 0">匯率約 1 THB ≈ 0.92 TWD。住宿費等新訂單金額出來後再補。</p>
+  </div>
+</section>
+
+<section id="pack">
+  <h2>🎒 行李清單</h2>
+  <div class="card"><div class="pack" id="packList"></div>
+  <p class="small muted" style="margin:6px 0 0">勾選只存在你自己的瀏覽器。</p></div>
+</section>
+
+<section id="tips">
+  <h2>💡 旅遊須知</h2>
+  <div class="tips" id="tipCards"></div>
+</section>
+
+</main>
+<footer class="wrap">營業時間依 Google 地圖與店家官網整理，出發前請再確認。</footer>
+
+<script>
+const M=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q+' Chiang Mai');
+const C={food:'var(--food)',spa:'var(--spa)',see:'var(--see)',shop:'var(--shop)',move:'var(--move)',stay:'var(--stay)',fly:'var(--stay)'};
+const B=(cls,t)=>`<span class="badge ${cls}">${t}</span>`;
+const FR=B('fr','與 Jessica 同行');
+const BK=B('wait','備案');
+const R=(...xs)=>'<br>🔁 附近備案：'+xs.map(x=>`<a href="${M(x[1])}" target="_blank" rel="noopener">${x[0]}</a>（${x[2]}）`).join('、');
+
+const DAYS=[
+ {d:'Day 1',date:'12/01（二）',t:'抵達＋古城夜遊',a:'古城東西兩側',it:[
+  ['15:55','fly','抵達清邁機場 CNX','星宇 JX751；Grab 到古城約 15 分','Chiang Mai International Airport'],
+  ['16:30','stay','VORA RETREAT 入住','12 人整棟 8 房，稍作休息','VORA RETREAT Old City'],
+  ['17:45','move','出發去 B Samcook','🚕 Grab 10–15 分（走路約 28 分）'],
+  ['18:00','see','B Samcook Home 16 付訂金','跟 Jessica 一起，為 12/4 聚餐付訂金','B Samcook Home16',FR],
+  ['18:15','food','Mae Kha 運河散步＋晚餐',"🚶 走路 3 分；運河邊小吃 16:00–22:00"+R(["Pakorn's Kitchen","Pakorn's Kitchen",'運河旁，瑪莎曼咖哩，到 22:00'],['Khum Hmon Somm','Khum Hmon Somm Hai Ya','運河旁泰菜，週二 19:00 打烊要早點到']),'Mae Kha Canal',FR],
+  ['19:15','move','走到清邁夜市','🚶 走路 15–18 分（Grab 5–8 分）'],
+  ['19:30','shop','清邁夜市 Night Bazaar','長康路；想拍照可繞去塔佩門（🚶 約 12 分）','Night Bazaar'],
+  ['20:55','move','去 Oasis 古城店','🚕 Grab 約 10 分（走路約 25 分）'],
+  ['21:30','spa','Oasis 古城店 泰式 2 小時','蘭納館，帕辛寺旁；按到 23:30，00:00 關門','Oasis Spa Lanna Wat Prasing',B('wait','⏳ 待預約')],
+  ['23:35','stay','走路回住處','🚶 約 5 分']]},
+ {d:'Day 2',date:'12/02（三）',t:'古城美學日',a:'全程步行',it:[
+  ['09:30','food','Kati 早午餐（自己吃）','Burirattana Hotel 內；一個人不用訂位'+R(['the butterfly effect','the butterfly effect organic cafe Rachadamnoen','有機早午餐，🚶 3 分，9:00 開'],['Baan Buri Café','Baan Buri Cafe Rachadamnoen','同條路，🚶 5 分，7:00 開']),'Kati Breakfast and Brunch'],
+  ['10:30','see','契迪龍寺 Wat Chedi Luang','門票 50฿；過膝、遮肩、脫鞋','Wat Chedi Luang'],
+  ['11:30','see','帕辛寺 Wat Phra Singh','金色蘭納建築，離住處最近','Wat Phra Singh'],
+  ['12:45','food','Khao Soi Maesai 咖哩麵','米其林必比登；在古城外西北，建議 Grab'+R(['Khoei Chiang Mai','Khoei Chiang Mai Northern Food','泰北菜，離 Maesai 🚶 約 8 分'],['Khao Soi Khun Yai','Khao Soi Khun Yai','古城北邊咖哩麵，只開 10:00–14:00']),'Khao Soi Maesai'],
+  ['14:00','see','自由時間',"古城巷弄、咖啡；累了可以順路回住處午休<br>"+BK+" <a href=\""+M('Chang Moi Road rattan shops')+"\" target=\"_blank\" rel=\"noopener\">藤編一條街（Chang Moi 路）</a>＋瓦洛洛市場｜🚕 約 10 分；市場開到 18:00，再 🚕 10 分回來吃 Huen Phen"],
+  ['17:00','food','Huen Phen 泰北菜','60 年老店；17:00 開晚餐場，吃 7 分飽'+R(['Maepasri','Maepasri Restaurant Ratchamanka','同條 Ratchamanka 路，到 21:00'],['CHUM Northern Kitchen','CHUM Northern Kitchen Old City','帕辛寺旁泰北菜，到 20:00']),'Huen Phen'],
+  ['18:30','spa','Fah Lanna 古城總店 Refreshing 2 小時','泰式＋香薰油；按到 20:30，21:00 關門；🚶 Huen Phen 走過去約 10 分','Fah Lanna Spa Old City',B('wait','⏳ 待預約')],
+  ['20:30','shop','按摩後三選一',"<b>A</b> 清邁門夜市（在地小吃）＋旁邊 24 小時 Lotus's 小超市｜🚶 16 分 ／ 🚕 5 分；回住處 🚶 約 15 分<br><b>B</b> <a href=\""+M('Big C Market Pantip')+"\" target=\"_blank\" rel=\"noopener\">Big C Market Pantip</a> 買伴手禮（開到 00:00）｜🚕 10 分 "+B('warn','⚠️ Day 3 可能跟 Jessica 去')+"<br><b>C</b> 先逛清邁門夜市，再 🚶 15 分到 Big C，🚕 回住處 "+B('warn','⚠️ Big C 同上'),'Chiang Mai Gate Market']]},
+ {d:'Day 3',date:'12/03（四）',t:'西郊藝術＋自由下午',a:'早上往西，下午三選一',it:[
+  ['08:45','food','Me & Bacon 早餐','清大後門旗艦店；招牌厚切培根'+R(['The Baristro Asian Style','The Baristro Asian Style Suthep','Suthep 路，8:00 開，離藝術村近'],['Thong-Urai Cafe','Thong-Urai Cafe Suan Dok','Suan Dok 路，9:30 才開，時間較趕']),'Me&Bacon Head Store'],
+  ['10:00','see','Baan Kang Wat 藝術村','獨立藝術家小木屋；週一公休','Baan Kang Wat',FR],
+  ['12:30','food','Chom Cafe 瀑布餐廳','記得訂瀑布座'+R(['Lamiat Thai Kitchen','Lamiat Thai Kitchen Su Thep','泰菜，評價 4.9'],['The View Village','The View Village Su Thep','Chom 旁邊的景觀餐廳']),'Chom Cafe and Restaurant'],
+  ['14:30','shop','下午到晚餐三選一',"<b>方案 1｜回古城慢慢逛</b><br>Chom → 古城 🚕 15–20 分（約 5.5 km，100–150฿）；古城內 🚶 巷弄、咖啡，可找 Jessica 會合；晚餐在古城吃，再 🚶 到 Makkha<br><b>方案 2｜留在寧曼</b> "+BK+"<br>Chom → 寧曼 🚕 15–20 分（約 6 km，100–150฿）；16:00 One Nimman 咖啡、散步 → 18:00 <a href=\""+M('Tong Tem Toh')+"\" target=\"_blank\" rel=\"noopener\">Tong Tem Toh</a>（🚶 5 分）→ 19:15 One Nimman 點燈（🚶 5 分）→ 20:10 🚕 回古城 10–15 分<br><b>方案 3｜回住處休息</b><br>Chom → 住處 🚕 15–20 分；午睡、整理戰利品；晚餐在住處附近 🚶 解決；20:20 🚶 約 10 分到 Makkha"],
+  ['20:30','spa','Makkha 拉查達姆農分店 四手泰式 120 分','在 Burirattana Hotel（同 Kati）；開到 23:00；按完走路回住處約 10 分','Makkha Health Spa Rachadamnoen Burirattana',B('wait','⏳ 待預約')]]},
+ {d:'Day 4',date:'12/04（五）',t:'寧曼購物＋朋友局',a:'寧曼一整天',it:[
+  ['09:30','see','Kalm Village 工藝聚落','9:30 開門；週三公休所以排今天','Kalm Village'],
+  ['11:00','food','Ginger Farm Kitchen 午餐','One Nimman 1F，Farm to Table'+R(['Chai “N” Thai','Chai N Thai Nimman Soi 9','寧曼 9 巷泰菜，評價 4.9'],['Nara Thai Cuisine','Nara Thai Cuisine Nimman','寧曼路口，MAYA 對面']),'Ginger Farm Kitchen One Nimman',FR],
+  ['13:00','shop','MAYA 百貨＋Tops 超市','彩妝、Naraya、伴手禮','MAYA Lifestyle Shopping Center',FR],
+  ['15:00','shop','寧曼 5、11 巷＋Always LOAF U','獨立設計師；下午茶在 17 巷'+R(['Charin Pie','Charin Pie Nimman Soi 17','同在 17 巷，派和蛋糕'],['Saruda','Saruda finest pastry One Nimman','One Nimman 內糕點，評價 5.0']),'Always LOAF U Nimman Soi 17',FR],
+  ['16:30','stay','回住處放戰利品、休息','Grab 10–15 分'],
+  ['19:00','food','B Samcook Home 16 朋友聚餐','20:30 打烊；7–8 分飽、啤酒 1 罐內'+R(["Pakorn's Kitchen","Pakorn's Kitchen",'運河旁，🚶 3 分'],['Best Khao Soi Chang Mai','Best Khao Soi Chang mai Phra Sing','清邁門附近，16:00–22:00']),'B Samcook Home16',FR+' '+B('ok','✅ 已訂位')],
+  ['21:00','spa',"Let's Relax 塔佩門店 四手泰式＋熱藥草球 120 分",'飯後按到 23:00；Grab 10 分；按完 Grab 回住處',"Let's Relax Spa Thapae",B('wait','⏳ 待預約')]]},
+ {d:'Day 5',date:'12/05（六）',t:'市集＋返程',a:'早上市集，下午回家',it:[
+  ['08:30','move','Grab 到真心市集','約 10 分'],
+  ['09:00','shop','Jing Jai 真心市集','週末限定；手作陶藝、藍染、銀飾','Jing Jai Market'],
+  ['11:30','move','Grab 回住處',''],
+  ['12:00','stay','打包、退房','陶瓷用衣服包好'],
+  ['13:30','food','LONDON.cnx 麵包','布丁蛋塔、鹽麵包可外帶上飛機'+R(['Fern Forest Cafe','Fern Forest Cafe Singharat','古城西北角林間咖啡'],['Sweet Home coffee','Sweet Home coffee Ratchamanka Soi 7','古城小咖啡店，評價 5.0']),'LONDON.cnx'],
+  ['14:00','move','Grab 到機場','約 15 分'],
+  ['16:55','fly','星宇 JX752 起飛','21:20 抵達桃園']]}
+];
+document.getElementById('days').innerHTML=DAYS.map(d=>`<details class="card day" open><summary class="dayhead"><span class="dn">${d.d}</span><span class="dt">${d.date}　${d.t}</span><span class="small muted">${d.a}</span><span class="chev" aria-hidden="true">▾</span></summary><ul class="items">${d.it.map(r=>`<li class="it"><span class="tm">${r[0]}</span><span class="dot" style="--c:${C[r[1]]}"></span><div><div class="nm">${r[4]?`<a href="${M(r[4])}" target="_blank" rel="noopener">${r[2]}</a>`:r[2]} ${r[5]||''}</div>${r[3]?`<div class="nt">${r[3]}</div>`:''}</div></li>`).join('')}</ul></details>`).join('');
+const dayEls=[...document.querySelectorAll('#days details')];
+document.getElementById('openAll').onclick=()=>dayEls.forEach(e=>e.open=true);
+document.getElementById('closeAll').onclick=()=>dayEls.forEach(e=>e.open=false);
+
+const SPA=[
+ {n:'1',when:'12/01（二）21:30–23:30',name:'Oasis Spa 古城店（蘭納館）',pick:'泰式按摩 2 小時',note:'帕辛寺旁，離住處走路幾分鐘。想跟 Jessica 同時段，要約她一起改 21:30。',q:'Oasis Spa Lanna Wat Prasing',st:FR+' '+B('wait','⏳ 待預約'),
+  hours:[['蘭納館（古城）','10:00–00:00 · Samlan 路 4 號'],['寧曼館','10:00–00:00 · 寧曼路 7 巷 11 號'],['電話預約','08:30–21:30 · +66 53 920 111']],
+  menu:[['泰式按摩','2 小時','1,700฿',1],['神奇四手按摩','1 小時','2,500฿',0]]},
+ {n:'2',when:'12/02（三）18:30–20:30',name:'Fah Lanna Spa 古城總店',pick:'Fah Lanna Refreshing 2 小時',note:'18:30 開始，按到 20:30，離 21:00 關門還有半小時。',q:'Fah Lanna Spa Old City',st:FR+' '+B('wait','⏳ 待預約'),
+  hours:[['所有分店','營業到 21:00'],['2 小時療程','最晚 19:00 開始；本團約 18:30']],
+  menu:[['Office Syndrome Retreat（頭、背、肩）','2 小時','1,900฿',0],['Fah Lanna Refreshing（傳統泰式＋香薰油）','2 小時','2,300฿',1]]},
+ {n:'3',when:'12/03（四）20:30–22:30',name:'Makkha 拉查達姆農分店',pick:'四手泰式 120 分',note:'在 Burirattana Hotel 裡（跟 Kati 同一間），按完走路回住處約 10 分。',q:'Makkha Health Spa Rachadamnoen Burirattana',st:B('wait','⏳ 待預約'),
+  hours:[['古宅、殖民花園分店','10:00–22:00 · 最後預約 21:00'],['夜市、拉查達姆農分店','10:00–23:00 · 最後預約 22:00']],
+  menu:[['四手精油按摩','90 分','2,985฿',0],['四手泰式按摩','90 分','2,085฿',0],['四手精油按摩','120 分','3,980฿',0],['四手泰式按摩','120 分','2,780฿',1]]},
+ {n:'4',when:'12/04（五）21:00–23:00',name:"Let's Relax 塔佩門店",pick:'四手泰式＋熱藥草球 120 分',note:'聚餐後去，按完附芒果糯米飯，再 Grab 回住處。',q:"Let's Relax Spa Thapae",st:B('wait','⏳ 待預約'),
+  hours:[['所有分店','10:00–24:00']],
+  menu:[['四手泰式按摩','120 分','2,200฿',0],['四手泰式按摩＋熱藥草球','120 分','2,400฿',1]]}];
+document.getElementById('spaCards').innerHTML=SPA.map(s=>`<div class="card spa"><div class="spa-top"><span class="num">${s.n}</span><div style="min-width:0"><div class="small muted">${s.when}</div><h3>${s.name}</h3><div class="small">已選：${s.pick}</div></div></div><p class="small" style="margin:10px 0 8px">${s.note}</p><div>${s.st}</div><h4 class="sh">🕘 營業時間</h4><dl class="kv" style="margin-top:4px">${s.hours.map(h=>`<dt>${h[0]}</dt><dd>${h[1]}</dd>`).join('')}</dl><h4 class="sh">📋 方案</h4><ul class="menu">${s.menu.map(m=>`<li class="${m[3]?'on':''}"><span>${m[3]?'✅ ':''}${m[0]}</span><span class="muted">${m[1]}</span><span class="pr">${m[2]}</span></li>`).join('')}</ul><a class="btn" href="${M(s.q)}" target="_blank" rel="noopener">📍 Google 地圖</a></div>`).join('');
+
+const TODO=[
+ ['🏨','取消原 Rwanda Naziza Airbnb',B('ok','✅ 已取消')],
+ ['💆','Oasis 古城店 12/1 21:30 泰式 2 小時（電話預約到 21:30，提前訂）',B('wait','⏳ 出發前 2 週')],
+ ['💆','Fah Lanna 古城總店 12/2 18:30 Refreshing 2 小時',B('wait','⏳ 出發前 1 週')],
+ ['💆','Makkha 拉查達姆農分店 12/3 20:30 四手泰式 120 分',B('wait','⏳ 出發前 1 週')],
+ ['💆',"Let's Relax 塔佩門店 12/4 21:00 四手＋熱藥草球 120 分",B('wait','⏳ 出發前 1 週')],
+ ['🍽','Me & Bacon 12/3 08:45（12 人）',B('wait','⏳ 出發前 1 週')],
+ ['🍽','Chom Cafe 瀑布座 12/3 12:30',B('wait','⏳ 出發前 1 週')],
+ ['🍽','Ginger Farm Kitchen 12/4 11:00',B('wait','⏳ 出發前 3 天')],
+ ['🍻','B Samcook Home 16 12/4 19:00',B('ok','✅ 已訂')],
+ ['🤝','12/1 18:00 跟 Jessica 去 B Samcook 付訂金',B('wait','⏳ 當天現場')],
+ ['🏨','VORA RETREAT 12/1–12/5',B('ok','✅ 已訂')],
+ ['🏨','補上 VORA 總價，重算每人住宿費',B('wait','⏳ 待補')],
+ ['🚖','12 人機場接送包車（Klook / KKday）',B('wait','⏳ 出發前 2 週')],
+ ['📱','泰國 eSIM × 12（Klook）',B('wait','⏳ 出發前 3 天')],
+ ['💵','換泰銖，每人約 1 萬泰銖',B('wait','⏳ 出發前 1 週')],
+ ['🛡','旅平險＋不便險',B('wait','⏳ 出發前 1 週')],
+ ['📄','護照效期 6 個月以上、影本',B('wait','⏳ 立即確認')],
+ ['🛂','泰國簽證：台灣護照免簽，不用辦（5 天行程在免簽天數內）',B('ok','✅ 免簽')],
+ ['🛂','填 TDAC 泰國數位入境卡：官網 tdac.immigration.go.th 免費，存 QR code 截圖；收費的網站是詐騙',B('wait','⏳ 11/28–12/1（抵達前 72 小時內）')],
+ ['🛂','入境可能抽查現金：每人至少 10,000฿',B('wait','⏳ 換匯時一起準備')],
+ ['🛂','觀光入境費 300฿ 是否已開徵、是否含在機票',B('warn','⚠️ 出發前確認')]];
+document.getElementById('todoList').innerHTML=TODO.map(t=>`<li><span>${t[0]}</span><span>${t[1]}</span>${t[2]}</li>`).join('');
+
+const FOOD=[
+ ['Mae Kha 運河','古城南 Haiya · B Samcook 旁','運河步道，晚上有小吃攤和現場音樂。16:00–22:00。','Mae Kha Canal','Day 1 晚餐'],
+ ["Pakorn's Kitchen",'Mae Kha 運河旁 · Kampangdin 路','招牌瑪莎曼咖哩，份量大可分享。13:30–22:00，週六公休。',"Pakorn's Kitchen",'Day 1 晚餐備選'],
+ ['SP Chicken','古城 · 米其林必比登炭烤雞','Google 顯示 17:00 打烊，行程裡改到夜市吃晚餐；想吃可以白天去。只收現金。','SP Chicken',B('warn','⚠️ 未排入')],
+ ['Kati Breakfast and Brunch','古城 · Burirattana Hotel','English Breakfast 239฿、KATI French Toast 219฿。7:30 開。','Kati Breakfast and Brunch','Day 2 早餐'],
+ ['Khao Soi Maesai','古城北 · 米其林必比登','招牌雞肉咖哩麵。8:00–16:00，週日公休，中午排隊。','Khao Soi Maesai','Day 2 午餐'],
+ ['Huen Phen','古城 · 60 年泰北家常菜','泰北香腸、咖哩麵、炸豬皮。晚上 17:00–22:00。','Huen Phen','Day 2 晚餐'],
+ ['Me & Bacon','素帖 · 清大後門','Me & Bacon 260฿。廢宅改造、超好拍。週三公休。','Me&Bacon Head Store','Day 3 早餐'],
+ ['Chom Cafe and Restaurant','古城南郊 · 雨林瀑布餐廳','瀑布靠窗座位一定要訂。11:00 開。','Chom Cafe and Restaurant','Day 3 午餐'],
+ ['Tong Tem Toh','寧曼 13 巷 · 泰北烤肉','泰北招牌拼盤、香茅烤豬頸肉。不收訂位。','Tong Tem Toh',B('wait','Day 3 備案')],
+ ['Ginger Farm Kitchen','One Nimman 1F · 米其林餐盤','香蕉葉烤魚、Hung Lay 咖哩。另收 10% 服務費。','Ginger Farm Kitchen One Nimman','Day 4 午餐'],
+ ['Always LOAF U','寧曼 17 巷 · 手工麵包','Cream Cheese Garlic Bun 85฿、牛角包 85฿。週一公休。','Always LOAF U Nimman Soi 17','Day 4 下午茶'],
+ ['B Samcook Home 16','古城南 Haiya 區','家庭式套餐，有現場音樂。11:00–20:30，週一公休。','B Samcook Home16','Day 4 晚餐'],
+ ['LONDON.cnx','古城西 · 松達門附近','布丁蛋塔 88฿、四色芝士椒鹽餅 138฿、鹽麵包。10:00 / 13:00 出爐要拿號碼牌。','LONDON.cnx','Day 5 午後']];
+document.getElementById('foodCards').innerHTML=FOOD.map(f=>`<div class="card"><h3>${f[0]}</h3><div class="small muted">${f[1]}</div><p class="small" style="margin:8px 0 0">${f[2]}</p><div style="margin-top:8px">${f[4].startsWith('<')?f[4]:B('ok',f[4])}</div><a class="btn" href="${M(f[3])}" target="_blank" rel="noopener">📍 地圖</a></div>`).join('');
+
+const ALT=[
+ ['The Moon Eatery','昌普區 · The Earth Hotel','Double C Salad、Shrimp Roll；7:30–16:30'],
+ ['Aob-Sook Bread & Pastry','古城東 Chang Moi','酪梨炒蛋酸種 119฿；週三公休'],
+ ['Baan Bakery','古城南 · 清邁門','牛角包 40฿；週三至六 9:00–15:00，常提早賣完'],
+ ['Butter is Better','夜市區','美式 Diner，Pastrami Reuben 290฿；週二公休']];
+document.getElementById('altFood').innerHTML=ALT.map(a=>`<li><span class="cat">🥐</span><span><b style="font-weight:500">${a[0]}</b> <span class="small muted">${a[1]}</span><br><span class="small">${a[2]}</span></span><a class="small" href="${M(a[0])}" target="_blank" rel="noopener">地圖</a></li>`).join('');
+
+const SHOP=[
+ ['One Nimman','Day 4','PANPURI 香氛、HARNN 米糠保養、The Goodcery 有機選物、Ginger Collection 泰絲藤編、Mont Nomsod 蜂蜜吐司'],
+ ['MAYA 百貨','Day 4','4U2、Mistine 彩妝、Naraya 曼谷包、Boots / Watsons、B1 Tops 超市伴手禮'],
+ ['寧曼 5、11 巷','Day 4','獨立設計師小店、Ristr8to 咖啡（3 巷）'],
+ ['Kalm Village','Day 4 早上','限量陶瓷、手織泰絲、設計香氛；週三公休'],
+ ['Jing Jai 真心市集','Day 5','手撕陶碗、藍染、925 銀飾、Ojos 咖啡車、Rustic & Blue 早午餐'],
+ ['清邁夜市','Day 1','紀念品、小吃，17:00 開到半夜']];
+document.getElementById('shopCards').innerHTML=SHOP.map(s=>`<div class="card"><h3>${s[0]} ${B('ok',s[1])}</h3><p class="small" style="margin:8px 0 0">${s[2]}</p></div>`).join('');
+
+const BUD=[
+ ['✈ 機票','星宇 JX751 / JX752（已購）',18541],
+ ['🏨 住宿','VORA RETREAT（總價 ÷ 12）',null],
+ ['💆 按摩 ①','Oasis 古城店 泰式 2 小時（1,700฿）',1564],
+ ['💆 按摩 ②','Fah Lanna Refreshing 2 小時（2,300฿）',2116],
+ ['💆 按摩 ③','Makkha 四手泰式 120 分（2,780฿）',2558],
+ ['💆 按摩 ④',"Let's Relax 四手＋熱藥草球 120 分（2,400฿）",2208],
+ ['💆 小費','每次 150฿ × 4（2 小時療程）',552],
+ ['🍽 餐費','約 1,100฿ / 天 × 5',5150],
+ ['🚖 交通','Grab＋接送',1000],
+ ['🛍 購物','伴手禮＋戰利品',6000],
+ ['🎫 門票','契迪龍寺、帕辛寺等',200],
+ ['📱 eSIM','5 天無限',300],
+ ['🛡 保險','旅平＋不便險',500],
+ ['💵 雜支','小費、水、零食',500]];
+const fmt=n=>'NT$ '+n.toLocaleString('en-US');
+const tot=BUD.reduce((s,b)=>s+(b[2]||0),0);
+document.getElementById('budgetRows').innerHTML=BUD.map(b=>`<tr><td>${b[0]}</td><td>${b[1]}</td><td class="n">${b[2]==null?B('wait','⏳ 待補'):fmt(b[2])}</td></tr>`).join('')+`<tr class="total"><td>💎 合計</td><td>不含住宿</td><td class="n">${fmt(tot)}</td></tr>`;
+
+const PACK={'📄 證件':['護照（效期 6 個月以上）','護照影本 ×2','電子機票','住宿訂房確認單','旅平險保單'],'💵 財物':['泰銖現金（約 1 萬泰銖）','信用卡（開通海外刷卡）','零錢包（20、50฿ 小鈔）'],'📱 3C':['手機＋充電線','行動電源（手提登機）','轉接頭（兩孔扁腳）','eSIM'],'👗 衣物':['輕薄長袖 3–4 件（進寺廟）','短袖 3–4 件','長褲 / 過膝裙','薄外套（早晚 15–18°C）','好走的鞋','拖鞋','按摩用寬鬆衣物'],'💄 盥洗':['牙刷牙膏','保養品小瓶','卸妝、洗面乳','防曬 SPF50+','髮圈、髮夾'],'💊 藥品':['個人慢性藥','腸胃藥','感冒藥、止痛藥','防蚊液','OK 繃'],'🛍 購物':['28 吋行李箱（留 60% 空間）','摺疊購物袋','氣泡袋（陶瓷用）'],'🎒 隨身':['斜背包','口罩、濕紙巾','保溫水壺','折疊傘']};
+let saved={};try{saved=JSON.parse(localStorage.getItem('cm-pack')||'{}')}catch(e){}
+let i=0;document.getElementById('packList').innerHTML=Object.entries(PACK).map(([g,arr])=>`<div class="grp"><h3 style="font-size:14px;margin-bottom:4px">${g}</h3>${arr.map(x=>{const id='p'+(i++);return `<label for="${id}"><input type="checkbox" id="${id}" ${saved[id]?'checked':''}><span>${x}</span></label>`}).join('')}</div>`).join('');
+document.getElementById('packList').addEventListener('change',e=>{if(e.target.id){saved[e.target.id]=e.target.checked;try{localStorage.setItem('cm-pack',JSON.stringify(saved))}catch(err){}}});
+
+const TIPS=[
+ ['🌡 天氣',['12 月乾季、最舒服','早晚 15–18°C，白天 25–28°C','紫外線強，要擦防曬']],
+ ['🚖 交通',['Grab 是首選，明碼標價','12 人分 3–4 台同時叫','古城內叫不到車就走到大馬路邊']],
+ ['💳 付款',['百貨、SPA 可刷卡','夜市、小吃、Khao Soi Maesai 只收現金','帶 1 張免海外手續費卡']],
+ ['🛕 寺廟禮儀',['過膝、遮肩、脫鞋進殿','女生不要碰僧侶','不要背對佛像拍照']],
+ ['🎁 小費',['餐廳找零 20–50฿','按摩 50–100฿，90 分以上 100–200฿','Grab 可免']],
+ ['🚨 安全',['夜市注意扒手','不要信路邊「便宜四手」','寺廟前「免費載」嘟嘟車是陷阱','旅遊警察 1155（有中文）']]];
+document.getElementById('tipCards').innerHTML=TIPS.map(t=>`<div class="card"><h3>${t[0]}</h3><ul>${t[1].map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+</script>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}</script>
+</body>
+</html>
