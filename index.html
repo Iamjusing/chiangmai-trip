@@ -174,11 +174,13 @@ footer{padding-block:30px 40px;font-size:12px;color:var(--muted)}
       <h3>↗ 去程 · 12/01（二） <span class="badge ok">✅ 已購</span></h3>
       <div class="flight"><div><span class="t">12:55</span><span class="ap">桃園 TPE</span></div><div class="arrow"><span>JX751 · 3h50m</span></div><div><span class="t">15:55</span><span class="ap">清邁 CNX</span></div></div>
       <p class="small muted" style="margin:6px 0 0">星宇航空 · A321neo · 清邁比台灣慢 1 小時</p>
+      <p class="small" style="margin:8px 0 0">🛋 先生：東方宇逸貴賓室服務 <span class="badge ok">✅ 已預約</span><br><span class="muted">訂單編號 OR4A****2535</span></p>
     </div>
     <div class="card">
       <h3>↙ 回程 · 12/05（六） <span class="badge ok">✅ 已購</span></h3>
       <div class="flight"><div><span class="t">16:55</span><span class="ap">清邁 CNX</span></div><div class="arrow"><span>JX752 · 3h25m</span></div><div><span class="t">21:20</span><span class="ap">桃園 TPE</span></div></div>
       <p class="small muted" style="margin:6px 0 0">星宇航空 · A321neo · 14:30 前到機場</p>
+      <p class="small" style="margin:8px 0 0">🛋 先生：新貴通 LoungeKey Pass <span class="badge ok">✅ 已預約</span></p>
     </div>
   </div>
   <p class="small muted">機票 NT$ 18,541 / 人。</p>
@@ -250,14 +252,9 @@ const DAYS=[
  {d:'Day 1',date:'12/01（二）',t:'抵達＋古城夜遊',a:'古城東西兩側',it:[
   ['15:55','fly','抵達清邁機場 CNX','星宇 JX751；Grab 到古城約 15 分','Chiang Mai International Airport'],
   ['16:30','stay','VORA RETREAT 入住','12 人整棟 8 房，稍作休息','VORA RETREAT Old City'],
-  ['17:45','move','出發去 B Samcook','🚕 Grab 10–15 分（走路約 28 分）'],
-  ['18:00','see','B Samcook Home 16 付訂金','跟 Jessica 一起，為 12/4 聚餐付訂金','B Samcook Home16',FR],
-  ['18:15','food','Mae Kha 運河散步＋晚餐',"🚶 走路 3 分；運河邊小吃 16:00–22:00"+R(["Pakorn's Kitchen","Pakorn's Kitchen",'運河旁，瑪莎曼咖哩，到 22:00'],['Khum Hmon Somm','Khum Hmon Somm Hai Ya','運河旁泰菜，週二 19:00 打烊要早點到']),'Mae Kha Canal',FR],
-  ['19:15','move','走到清邁夜市','🚶 走路 15–18 分（Grab 5–8 分）'],
-  ['19:30','shop','清邁夜市 Night Bazaar','長康路；想拍照可繞去塔佩門（🚶 約 12 分）','Night Bazaar'],
-  ['20:55','move','去 Oasis 古城店','🚕 Grab 約 10 分（走路約 25 分）'],
-  ['21:30','spa','Oasis 古城店 泰式 2 小時','蘭納館，帕辛寺旁；按到 23:30，00:00 關門','Oasis Spa Lanna Wat Prasing',B('wait','⏳ 待預約')],
-  ['23:35','stay','走路回住處','🚶 約 5 分']]},
+  ['17:00','see','按摩前二選一',"<b>方案 A｜跟 Jessica 去 <a href=\""+M('B Samcook Home16')+"\" target=\"_blank\" rel=\"noopener\">B Samcook</a> 付訂金</b> "+FR+"<br>17:30 🚕 10–15 分到 B Samcook → 17:45 付訂金（比原本 18:00 提早，要跟 Jessica 說）→ 18:00 🚕 10–15 分到 Fah Lanna。晚餐要等按摩完才吃，路上先買點心墊胃<br><b>方案 B｜不去付訂金，先吃晚餐</b><br>17:00 🚶 約 7 分到<a href=\""+M('Wat Phra Singh')+"\" target=\"_blank\" rel=\"noopener\">帕辛寺</a>看黃昏（開到 19:30）→ 17:30 🚶 約 3 分到 <a href=\""+M('CHUM Northern Kitchen Old City')+"\" target=\"_blank\" rel=\"noopener\">CHUM Northern Kitchen</a> 吃泰北菜（到 20:00）→ 18:20 🚶 約 6 分到 Fah Lanna<br>🔁 晚餐備案：<a href=\""+M('Mr. KAI Restaurant Jhaban Rd')+"\" target=\"_blank\" rel=\"noopener\">Mr. KAI Restaurant</a>（離 Fah Lanna 🚶 約 4 分，到 21:00）"],
+  ['18:30','spa','Fah Lanna 古城總店 Refreshing 2 小時','泰式＋香薰油；按到 20:30，21:00 關門','Fah Lanna Spa Old City',B('wait','⏳ 待預約')],
+  ['20:30','shop','按摩後（依方案）',"<b>方案 A</b>：🚕 10–15 分到 <a href=\""+M('Mae Kha Canal')+"\" target=\"_blank\" rel=\"noopener\">Mae Kha 運河</a>吃晚餐（小吃開到 22:00，或 Pakorn's Kitchen）→ 21:45 🚶 15–18 分到清邁夜市 → 23:00 🚕 回住處 10–15 分<br><b>方案 B</b>：🚕 約 10 分直接到<a href=\""+M('Night Bazaar')+"\" target=\"_blank\" rel=\"noopener\">清邁夜市</a>，逛到 22:15（開到 00:00，想拍照可繞去塔佩門 🚶 約 12 分）→ 🚕 回住處 10–15 分"]]},
  {d:'Day 2',date:'12/02（三）',t:'古城美學日',a:'全程步行',it:[
   ['09:30','food','Kati 早午餐（自己吃）','Burirattana Hotel 內；一個人不用訂位'+R(['the butterfly effect','the butterfly effect organic cafe Rachadamnoen','有機早午餐，🚶 3 分，9:00 開'],['Baan Buri Café','Baan Buri Cafe Rachadamnoen','同條路，🚶 5 分，7:00 開']),'Kati Breakfast and Brunch'],
   ['10:30','see','契迪龍寺 Wat Chedi Luang','門票 50฿；過膝、遮肩、脫鞋','Wat Chedi Luang'],
@@ -265,13 +262,13 @@ const DAYS=[
   ['12:45','food','Khao Soi Maesai 咖哩麵','米其林必比登；在古城外西北，建議 Grab'+R(['Khoei Chiang Mai','Khoei Chiang Mai Northern Food','泰北菜，離 Maesai 🚶 約 8 分'],['Khao Soi Khun Yai','Khao Soi Khun Yai','古城北邊咖哩麵，只開 10:00–14:00']),'Khao Soi Maesai'],
   ['14:00','see','自由時間',"古城巷弄、咖啡；累了可以順路回住處午休<br>"+BK+" <a href=\""+M('Chang Moi Road rattan shops')+"\" target=\"_blank\" rel=\"noopener\">藤編一條街（Chang Moi 路）</a>＋瓦洛洛市場｜🚕 約 10 分；市場開到 18:00，再 🚕 10 分回來吃 Huen Phen"],
   ['17:00','food','Huen Phen 泰北菜','60 年老店；17:00 開晚餐場，吃 7 分飽'+R(['Maepasri','Maepasri Restaurant Ratchamanka','同條 Ratchamanka 路，到 21:00'],['CHUM Northern Kitchen','CHUM Northern Kitchen Old City','帕辛寺旁泰北菜，到 20:00']),'Huen Phen'],
-  ['18:30','spa','Fah Lanna 古城總店 Refreshing 2 小時','泰式＋香薰油；按到 20:30，21:00 關門；🚶 Huen Phen 走過去約 10 分','Fah Lanna Spa Old City',B('wait','⏳ 待預約')],
-  ['20:30','shop','按摩後三選一',"<b>A</b> 清邁門夜市（在地小吃）＋旁邊 24 小時 Lotus's 小超市｜🚶 16 分 ／ 🚕 5 分；回住處 🚶 約 15 分<br><b>B</b> <a href=\""+M('Big C Market Pantip')+"\" target=\"_blank\" rel=\"noopener\">Big C Market Pantip</a> 買伴手禮（開到 00:00）｜🚕 10 分 "+B('warn','⚠️ Day 3 可能跟 Jessica 去')+"<br><b>C</b> 先逛清邁門夜市，再 🚶 15 分到 Big C，🚕 回住處 "+B('warn','⚠️ Big C 同上'),'Chiang Mai Gate Market']]},
+  ['18:30','spa',"Let's Relax 塔佩門店 四手泰式 120 分",'從 Day 4 移過來；按到 20:30，店開到 24:00；🚶 Huen Phen 走過去約 7 分',"Let's Relax Spa Thapae",B('wait','⏳ 待預約')],
+  ['20:30','shop','按摩後三選一',"<b>A</b> 清邁門夜市（在地小吃）＋旁邊 24 小時 Lotus's 小超市｜🚶 約 12 分；回住處 🚶 約 15 分<br><b>B</b> <a href=\""+M('Big C Market Pantip')+"\" target=\"_blank\" rel=\"noopener\">Big C Market Pantip</a> 買伴手禮（開到 00:00）｜🚶 約 15 分 ／ 🚕 5 分 "+B('warn','⚠️ Day 3 可能跟 Jessica 去')+"<br><b>C</b> 先逛清邁門夜市，再 🚶 15 分到 Big C，🚕 回住處 "+B('warn','⚠️ Big C 同上'),'Chiang Mai Gate Market']]},
  {d:'Day 3',date:'12/03（四）',t:'西郊藝術＋自由下午',a:'早上往西，下午三選一',it:[
   ['08:45','food','Me & Bacon 早餐','清大後門旗艦店；招牌厚切培根'+R(['The Baristro Asian Style','The Baristro Asian Style Suthep','Suthep 路，8:00 開，離藝術村近'],['Thong-Urai Cafe','Thong-Urai Cafe Suan Dok','Suan Dok 路，9:30 才開，時間較趕']),'Me&Bacon Head Store'],
   ['10:00','see','Baan Kang Wat 藝術村','獨立藝術家小木屋；週一公休','Baan Kang Wat',FR],
-  ['12:30','food','Chom Cafe 瀑布餐廳','記得訂瀑布座'+R(['Lamiat Thai Kitchen','Lamiat Thai Kitchen Su Thep','泰菜，評價 4.9'],['The View Village','The View Village Su Thep','Chom 旁邊的景觀餐廳']),'Chom Cafe and Restaurant'],
-  ['14:30','shop','下午到晚餐三選一',"<b>方案 1｜回古城慢慢逛</b><br>Chom → 古城 🚕 15–20 分（約 5.5 km，100–150฿）；古城內 🚶 巷弄、咖啡，可找 Jessica 會合；晚餐在古城吃，再 🚶 到 Makkha<br><b>方案 2｜留在寧曼</b> "+BK+"<br>Chom → 寧曼 🚕 15–20 分（約 6 km，100–150฿）；16:00 One Nimman 咖啡、散步 → 18:00 <a href=\""+M('Tong Tem Toh')+"\" target=\"_blank\" rel=\"noopener\">Tong Tem Toh</a>（🚶 5 分）→ 19:15 One Nimman 點燈（🚶 5 分）→ 20:10 🚕 回古城 10–15 分<br><b>方案 3｜回住處休息</b><br>Chom → 住處 🚕 15–20 分；午睡、整理戰利品；晚餐在住處附近 🚶 解決；20:20 🚶 約 10 分到 Makkha"],
+  ['12:15','food','Han Teung 泰北菜','米其林必比登；藝術村 🚕 約 5 分；11:30–12:00 開始排隊，可提早點去'+R(['Yook Samai','Yook Samai Baan Kang Wat','藝術村裡的咖哩麵，不用移動，假日要排隊'],['Sanimthoon (Mud House)','Sanimthoon Mud House Su Thep','藝術村旁泰緬菜，🚶 約 5 分']),'Han Teung Chiangmai'],
+  ['13:30','shop','下午到晚餐三選一',"<b>方案 1｜回古城慢慢逛</b><br>Han Teung → 古城 🚕 約 10 分（約 3 km，80–120฿）；古城內 🚶 巷弄、咖啡，可找 Jessica 會合；晚餐在古城吃，再 🚶 到 Makkha<br><b>方案 2｜留在寧曼</b> "+BK+"<br>Han Teung → 寧曼 🚕 約 8 分（約 2 km，80–100฿）；16:00 One Nimman 咖啡、散步 → 18:00 <a href=\""+M('Tong Tem Toh')+"\" target=\"_blank\" rel=\"noopener\">Tong Tem Toh</a>（🚶 5 分）→ 19:15 One Nimman 點燈（🚶 5 分）→ 20:10 🚕 回古城 10–15 分<br><b>方案 3｜回住處休息</b><br>Han Teung → 住處 🚕 約 10 分；午睡、整理戰利品；晚餐在住處附近 🚶 解決；20:20 🚶 約 10 分到 Makkha"],
   ['20:30','spa','Makkha 拉查達姆農分店 四手泰式 120 分','在 Burirattana Hotel（同 Kati）；開到 23:00；按完走路回住處約 10 分','Makkha Health Spa Rachadamnoen Burirattana',B('wait','⏳ 待預約')]]},
  {d:'Day 4',date:'12/04（五）',t:'寧曼購物＋朋友局',a:'寧曼一整天',it:[
   ['09:30','see','Kalm Village 工藝聚落','9:30 開門；週三公休所以排今天','Kalm Village'],
@@ -280,15 +277,16 @@ const DAYS=[
   ['15:00','shop','寧曼 5、11 巷＋Always LOAF U','獨立設計師；下午茶在 17 巷'+R(['Charin Pie','Charin Pie Nimman Soi 17','同在 17 巷，派和蛋糕'],['Saruda','Saruda finest pastry One Nimman','One Nimman 內糕點，評價 5.0']),'Always LOAF U Nimman Soi 17',FR],
   ['16:30','stay','回住處放戰利品、休息','Grab 10–15 分'],
   ['19:00','food','B Samcook Home 16 朋友聚餐','20:30 打烊；7–8 分飽、啤酒 1 罐內'+R(["Pakorn's Kitchen","Pakorn's Kitchen",'運河旁，🚶 3 分'],['Best Khao Soi Chang Mai','Best Khao Soi Chang mai Phra Sing','清邁門附近，16:00–22:00']),'B Samcook Home16',FR+' '+B('ok','✅ 已訂位')],
-  ['21:00','spa',"Let's Relax 塔佩門店 四手泰式＋熱藥草球 120 分",'飯後按到 23:00；Grab 10 分；按完 Grab 回住處',"Let's Relax Spa Thapae",B('wait','⏳ 待預約')]]},
+  ['21:00','spa','Oasis 古城店（與先生、Jason）',"你：泰式 2 小時 1,700฿<br>先生＋Jason：綠洲帝王按摩 2 小時、買一送一（含稅服務費共 4,590฿，每人約 2,295฿）<br>B Samcook 20:30 散場 → 🚕 約 15 分；蘭納館在帕辛寺旁，按到 23:00，走路 5 分回住處",'Oasis Spa Lanna Wat Prasing',B('fr','與 Jason 同行')+' '+B('wait','⏳ 待預約')]]},
  {d:'Day 5',date:'12/05（六）',t:'市集＋返程',a:'早上市集，下午回家',it:[
   ['08:30','move','Grab 到真心市集','約 10 分'],
   ['09:00','shop','Jing Jai 真心市集','週末限定；手作陶藝、藍染、銀飾','Jing Jai Market'],
   ['11:30','move','Grab 回住處',''],
   ['12:00','stay','打包、退房','陶瓷用衣服包好'],
   ['13:30','food','LONDON.cnx 麵包','布丁蛋塔、鹽麵包可外帶上飛機'+R(['Fern Forest Cafe','Fern Forest Cafe Singharat','古城西北角林間咖啡'],['Sweet Home coffee','Sweet Home coffee Ratchamanka Soi 7','古城小咖啡店，評價 5.0']),'LONDON.cnx'],
-  ['14:00','move','Grab 到機場','約 15 分'],
-  ['16:55','fly','星宇 JX752 起飛','21:20 抵達桃園']]}
+  ['14:00','move','Grab 到機場','約 15 分；先生用新貴通 LoungeKey 進貴賓室'],
+  ['16:55','fly','星宇 JX752 起飛','21:20 抵達桃園第二航廈'],
+  ['21:20','move','全鋒機場接送回家','司機資訊在航班抵達前 1 小時用簡訊傳；當天帶身分證件和訂車的信用卡',null,B('ok','✅ 已預約')]]}
 ];
 document.getElementById('days').innerHTML=DAYS.map(d=>`<details class="card day" open><summary class="dayhead"><span class="dn">${d.d}</span><span class="dt">${d.date}　${d.t}</span><span class="small muted">${d.a}</span><span class="chev" aria-hidden="true">▾</span></summary><ul class="items">${d.it.map(r=>`<li class="it"><span class="tm">${r[0]}</span><span class="dot" style="--c:${C[r[1]]}"></span><div><div class="nm">${r[4]?`<a href="${M(r[4])}" target="_blank" rel="noopener">${r[2]}</a>`:r[2]} ${r[5]||''}</div>${r[3]?`<div class="nt">${r[3]}</div>`:''}</div></li>`).join('')}</ul></details>`).join('');
 const dayEls=[...document.querySelectorAll('#days details')];
@@ -296,32 +294,34 @@ document.getElementById('openAll').onclick=()=>dayEls.forEach(e=>e.open=true);
 document.getElementById('closeAll').onclick=()=>dayEls.forEach(e=>e.open=false);
 
 const SPA=[
- {n:'1',when:'12/01（二）21:30–23:30',name:'Oasis Spa 古城店（蘭納館）',pick:'泰式按摩 2 小時',note:'帕辛寺旁，離住處走路幾分鐘。想跟 Jessica 同時段，要約她一起改 21:30。',q:'Oasis Spa Lanna Wat Prasing',st:FR+' '+B('wait','⏳ 待預約'),
-  hours:[['蘭納館（古城）','10:00–00:00 · Samlan 路 4 號'],['寧曼館','10:00–00:00 · 寧曼路 7 巷 11 號'],['電話預約','08:30–21:30 · +66 53 920 111']],
-  menu:[['泰式按摩','2 小時','1,700฿',1],['神奇四手按摩','1 小時','2,500฿',0]]},
- {n:'2',when:'12/02（三）18:30–20:30',name:'Fah Lanna Spa 古城總店',pick:'Fah Lanna Refreshing 2 小時',note:'18:30 開始，按到 20:30，離 21:00 關門還有半小時。',q:'Fah Lanna Spa Old City',st:FR+' '+B('wait','⏳ 待預約'),
+ {n:'1',when:'12/01（二）18:30–20:30',name:'Fah Lanna Spa 古城總店',pick:'Fah Lanna Refreshing 2 小時',note:'18:30 開始，按到 20:30，離 21:00 關門還有半小時。按完再去吃晚餐、逛夜市。',q:'Fah Lanna Spa Old City',st:B('wait','⏳ 待預約'),
   hours:[['所有分店','營業到 21:00'],['2 小時療程','最晚 19:00 開始；本團約 18:30']],
   menu:[['Office Syndrome Retreat（頭、背、肩）','2 小時','1,900฿',0],['Fah Lanna Refreshing（傳統泰式＋香薰油）','2 小時','2,300฿',1]]},
+ {n:'2',when:'12/02（三）18:30–20:30',name:"Let's Relax 塔佩門店",pick:'四手泰式 120 分（不加熱藥草球）',note:'從 Day 4 移過來。吃完 Huen Phen 走過去約 7 分，按完附芒果糯米飯。',q:"Let's Relax Spa Thapae",st:B('wait','⏳ 待預約'),
+  hours:[['所有分店','10:00–24:00']],
+  menu:[['四手泰式按摩','120 分','2,200฿',1],['四手泰式按摩＋熱藥草球（會熱）','120 分','2,400฿',0]]},
  {n:'3',when:'12/03（四）20:30–22:30',name:'Makkha 拉查達姆農分店',pick:'四手泰式 120 分',note:'在 Burirattana Hotel 裡（跟 Kati 同一間），按完走路回住處約 10 分。',q:'Makkha Health Spa Rachadamnoen Burirattana',st:B('wait','⏳ 待預約'),
   hours:[['古宅、殖民花園分店','10:00–22:00 · 最後預約 21:00'],['夜市、拉查達姆農分店','10:00–23:00 · 最後預約 22:00']],
   menu:[['四手精油按摩','90 分','2,985฿',0],['四手泰式按摩','90 分','2,085฿',0],['四手精油按摩','120 分','3,980฿',0],['四手泰式按摩','120 分','2,780฿',1]]},
- {n:'4',when:'12/04（五）21:00–23:00',name:"Let's Relax 塔佩門店",pick:'四手泰式＋熱藥草球 120 分',note:'聚餐後去，按完附芒果糯米飯，再 Grab 回住處。',q:"Let's Relax Spa Thapae",st:B('wait','⏳ 待預約'),
-  hours:[['所有分店','10:00–24:00']],
-  menu:[['四手泰式按摩','120 分','2,200฿',0],['四手泰式按摩＋熱藥草球','120 分','2,400฿',1]]}];
+ {n:'4',when:'12/04（五）21:00–23:00',name:'Oasis Spa 古城店（蘭納館）',pick:'泰式按摩 2 小時',note:'B Samcook 聚餐後搭 Grab 約 15 分過去，帕辛寺旁，按完走路回住處。先生和 Jason 一起去，兩人做綠洲帝王按摩買一送一。',q:'Oasis Spa Lanna Wat Prasing',st:B('fr','與 Jason 同行')+' '+B('wait','⏳ 待預約'),
+  hours:[['蘭納館（古城）','10:00–00:00 · Samlan 路 4 號'],['寧曼館','10:00–00:00 · 寧曼路 7 巷 11 號'],['電話預約','08:30–21:30 · +66 53 920 111']],
+  menu:[['泰式按摩（你）','2 小時','1,700฿',1],['綠洲帝王按摩（先生＋Jason，買一送一；有熱藥草球、熱油）','2 小時','3,900฿++',1],['神奇四手按摩','1 小時','2,500฿',0]]}];
 document.getElementById('spaCards').innerHTML=SPA.map(s=>`<div class="card spa"><div class="spa-top"><span class="num">${s.n}</span><div style="min-width:0"><div class="small muted">${s.when}</div><h3>${s.name}</h3><div class="small">已選：${s.pick}</div></div></div><p class="small" style="margin:10px 0 8px">${s.note}</p><div>${s.st}</div><h4 class="sh">🕘 營業時間</h4><dl class="kv" style="margin-top:4px">${s.hours.map(h=>`<dt>${h[0]}</dt><dd>${h[1]}</dd>`).join('')}</dl><h4 class="sh">📋 方案</h4><ul class="menu">${s.menu.map(m=>`<li class="${m[3]?'on':''}"><span>${m[3]?'✅ ':''}${m[0]}</span><span class="muted">${m[1]}</span><span class="pr">${m[2]}</span></li>`).join('')}</ul><a class="btn" href="${M(s.q)}" target="_blank" rel="noopener">📍 Google 地圖</a></div>`).join('');
 
 const TODO=[
  ['🏨','取消原 Rwanda Naziza Airbnb',B('ok','✅ 已取消')],
- ['💆','Oasis 古城店 12/1 21:30 泰式 2 小時（電話預約到 21:30，提前訂）',B('wait','⏳ 出發前 2 週')],
- ['💆','Fah Lanna 古城總店 12/2 18:30 Refreshing 2 小時',B('wait','⏳ 出發前 1 週')],
+ ['💆','Fah Lanna 古城總店 12/1 18:30 Refreshing 2 小時',B('wait','⏳ 出發前 1 週')],
+ ['💆',"Let's Relax 塔佩門店 12/2 18:30 四手泰式 120 分",B('wait','⏳ 出發前 1 週')],
  ['💆','Makkha 拉查達姆農分店 12/3 20:30 四手泰式 120 分',B('wait','⏳ 出發前 1 週')],
- ['💆',"Let's Relax 塔佩門店 12/4 21:00 四手＋熱藥草球 120 分",B('wait','⏳ 出發前 1 週')],
+ ['💆','Oasis 古城店 12/4 21:00：你泰式 2 小時；先生＋Jason 帝王按摩買一送一（三人訂同一時段）',B('wait','⏳ 出發前 2 週')],
  ['🍽','Me & Bacon 12/3 08:45（12 人）',B('wait','⏳ 出發前 1 週')],
- ['🍽','Chom Cafe 瀑布座 12/3 12:30',B('wait','⏳ 出發前 1 週')],
  ['🍽','Ginger Farm Kitchen 12/4 11:00',B('wait','⏳ 出發前 3 天')],
  ['🍻','B Samcook Home 16 12/4 19:00',B('ok','✅ 已訂')],
- ['🤝','12/1 18:00 跟 Jessica 去 B Samcook 付訂金',B('wait','⏳ 當天現場')],
+ ['🤝','12/1 17:45 跟 Jessica 去 B Samcook 付訂金（選方案 A 才需要；原約 18:00，要跟她改時間）',B('wait','⏳ 當天現場')],
  ['🏨','VORA RETREAT 12/1–12/5',B('ok','✅ 已訂')],
+ ['🛋','先生去程貴賓室：東方宇逸貴賓室服務（訂單 OR4A****2535）',B('ok','✅ 已預約')],
+ ['🛋','先生回程貴賓室：新貴通 LoungeKey Pass',B('ok','✅ 已預約')],
+ ['🚗','回程全鋒機場接送（12/5 桃園二航）。要改或取消：搭車前 24 小時打 0800-860-929',B('ok','✅ 已預約')],
  ['🏨','補上 VORA 總價，重算每人住宿費',B('wait','⏳ 待補')],
  ['🚖','12 人機場接送包車（Klook / KKday）',B('wait','⏳ 出發前 2 週')],
  ['📱','泰國 eSIM × 12（Klook）',B('wait','⏳ 出發前 3 天')],
@@ -342,7 +342,7 @@ const FOOD=[
  ['Khao Soi Maesai','古城北 · 米其林必比登','招牌雞肉咖哩麵。8:00–16:00，週日公休，中午排隊。','Khao Soi Maesai','Day 2 午餐'],
  ['Huen Phen','古城 · 60 年泰北家常菜','泰北香腸、咖哩麵、炸豬皮。晚上 17:00–22:00。','Huen Phen','Day 2 晚餐'],
  ['Me & Bacon','素帖 · 清大後門','Me & Bacon 260฿。廢宅改造、超好拍。週三公休。','Me&Bacon Head Store','Day 3 早餐'],
- ['Chom Cafe and Restaurant','古城南郊 · 雨林瀑布餐廳','瀑布靠窗座位一定要訂。11:00 開。','Chom Cafe and Restaurant','Day 3 午餐'],
+ ['Han Teung Chiangmai','素帖 · 米其林必比登泰北菜','小份量、價格實惠，可以多點幾道分享。午餐 10:00–16:00、晚餐 17:00–21:30。','Han Teung Chiangmai','Day 3 午餐'],
  ['Tong Tem Toh','寧曼 13 巷 · 泰北烤肉','泰北招牌拼盤、香茅烤豬頸肉。不收訂位。','Tong Tem Toh',B('wait','Day 3 備案')],
  ['Ginger Farm Kitchen','One Nimman 1F · 米其林餐盤','香蕉葉烤魚、Hung Lay 咖哩。另收 10% 服務費。','Ginger Farm Kitchen One Nimman','Day 4 午餐'],
  ['Always LOAF U','寧曼 17 巷 · 手工麵包','Cream Cheese Garlic Bun 85฿、牛角包 85฿。週一公休。','Always LOAF U Nimman Soi 17','Day 4 下午茶'],
@@ -369,10 +369,10 @@ document.getElementById('shopCards').innerHTML=SHOP.map(s=>`<div class="card"><h
 const BUD=[
  ['✈ 機票','星宇 JX751 / JX752（已購）',18541],
  ['🏨 住宿','VORA RETREAT（總價 ÷ 12）',null],
- ['💆 按摩 ①','Oasis 古城店 泰式 2 小時（1,700฿）',1564],
- ['💆 按摩 ②','Fah Lanna Refreshing 2 小時（2,300฿）',2116],
+ ['💆 按摩 ①','Fah Lanna Refreshing 2 小時（2,300฿）',2116],
+ ['💆 按摩 ②',"Let's Relax 四手泰式 120 分（2,200฿）",2024],
  ['💆 按摩 ③','Makkha 四手泰式 120 分（2,780฿）',2558],
- ['💆 按摩 ④',"Let's Relax 四手＋熱藥草球 120 分（2,400฿）",2208],
+ ['💆 按摩 ④','Oasis 古城店 泰式 2 小時（1,700฿）',1564],
  ['💆 小費','每次 150฿ × 4（2 小時療程）',552],
  ['🍽 餐費','約 1,100฿ / 天 × 5',5150],
  ['🚖 交通','Grab＋接送',1000],
@@ -402,5 +402,3 @@ document.getElementById('tipCards').innerHTML=TIPS.map(t=>`<div class="card"><h3
 <script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}</script>
 </body>
 </html>
-
-
